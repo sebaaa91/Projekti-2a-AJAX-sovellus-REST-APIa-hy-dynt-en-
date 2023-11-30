@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <h1>Weather Information</h1>
+
+    <!-- Input kaupungin nimi-->
+    <label for="cityInput">Enter City: </label>
+    <input
+        type="text"
+        id="cityInput"
+        placeholder="Enter city name"
+        onKeyPress="searchOnEnter(event)"
+    >
+
+    <!-- Käynnistä haku -->
+    <button id="searchBtn">Search Weather</button>
+
+    <!-- Näytä haettu data -->
+    <div id="weatherResult"></div>
+
+    <!-- Sisällytä ulkoinen javascript tiedosto -->
+    <script src="script.js"></script>
+
+    <script>
+        // Toimii, jos paintaa Enter
+        function searchOnEnter(event) {
+            if (event.key === 'Enter') {
+                searchWeather();
+            }
+        }
+    </script>
+
+</body>
+</html>

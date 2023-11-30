@@ -1,0 +1,29 @@
+body {
+    background-color: lightblue;
+    text-align: center;
+}
+
+h1 {
+    font-size: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}

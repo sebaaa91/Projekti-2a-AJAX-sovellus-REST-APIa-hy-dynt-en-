@@ -36,7 +36,7 @@ function displayWeatherData(data) {
         const description = data.weather ? data.weather[0].description : 'N/A';
 
         resultContainer.innerHTML = `<p>Temperature: ${temperature} C</p>`;
-        resultContainer.innerHTML += `<p>Description: ${description}</p>`;
+        resultContainer.innerHTML += `<p>Weather description: ${description}</p>`;
     } else {
         resultContainer.innerHTML = `<p>${data.message}</p>`;
     }
@@ -53,6 +53,34 @@ function searchWeather() {
     } else {
         alert("Please enter a city name.");
     }
+    
+    // Function etsimään sää dataa
+    function getWeatherData(city) {
+        const apiKey = 'e06c334215713d3652abec19303a99b3';
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=e06c334215713d3652abec19303a99b3`;
+    
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    const data = JSON.parse(xhr.responseText);
+                    displayWeatherData(data);
+                } else if (xhr.status === 404) {
+                    // 404 error (city not found)
+                    alert("City not found. Please check the city name.");
+                } else {
+                    console.error(`Error: ${xhr.status}`);
+                }
+            }
+        };
+    
+        xhr.open("GET", apiUrl, true);
+        xhr.send();
+    }
+    
+    
+    
+    
 }
 
 // Lisää event listener haku nappulaan
